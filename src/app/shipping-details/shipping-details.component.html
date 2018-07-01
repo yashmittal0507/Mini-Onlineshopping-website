@@ -1,0 +1,31 @@
+<div class="container">
+  <p class="pull-right text-danger">* Mandatory Fields</p>
+  <div *ngIf="!orderPlaced" class="text-danger">Please fill the fields marked with *</div>
+  <br>
+  <br>
+  <form [formGroup]="form" (ngSubmit)="onPlaceOrder(form)">
+    <div formGroupName="contact">
+      <div class="form-group">
+        <label for="name">*Full Name</label>
+        <input id="name" type="text" formControlName="name" class="form-control">
+        <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+          <div *ngIf="name.errors.required">Name is required</div>
+          <div *ngIf="name.errors.minlength">Name should be minimum {{name.errors.minlength.requiredLength}} characters long</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="address">*Shipping Address</label>
+        <input id="address" type="text" formControlName="address" class="form-control">
+        <div class="alert alert-danger" *ngIf="address.touched && address.invalid">
+          <div *ngIf="address.errors.required">Address is required</div>
+        </div>
+      </div>
+
+    </div>
+    <button class="btn btn-primary">Place Order</button>
+    <button class="btn btn-primary" (click)="goToHome()">Shop More</button>
+  </form>
+  <br>
+  <div *ngIf="message" class="text-success">Your Order has been Successfully Placed</div>
+</div>

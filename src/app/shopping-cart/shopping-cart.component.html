@@ -1,0 +1,19 @@
+<div class="container">
+  <div *ngIf="getItem.length==0">
+      <h1>No Items in the cart</h1>
+      <p>Please add some items</p>
+  </div>
+  <div class="panel-group">
+    <div class="panel panel-success" *ngFor="let item of getItem;let i=index">
+      <div class="panel-heading">{{item.ItemName}} <span class="pull-right">Quantity-{{item.quantity}}</span></div>
+      <div class="panel-body"> {{item.price | currency:'USD':true}}</div>
+      <div class="panel-footer"> <button class="btn btn-danger" (click)="onDelete(i,item)" *ngIf="!deleteFlag">Delete</button></div>
+    </div>
+ </div>
+  <div class="panel panel-info">
+    <div class="panel-heading">Order Total</div>
+    <div class="panel-footer">{{totalAmount | currency:'USD':true}}
+      </div>
+      
+      <span style="float:right;margin-top:10px;"><button class="btn btn-success" *ngIf="totalAmount!=0" (click)="checkoutPage()">Proceed to checkout></button></span>
+</div>
