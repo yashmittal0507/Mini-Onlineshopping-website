@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {ItemService} from './app.service'
 
 import { HomeComponent } from './home/home.component';
+import { LoginService } from './login/login.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent  {
   accessHome:HomeComponent
   public cartAdded:boolean=false;
  
-  constructor(private itemService:ItemService,private router:Router){
+  constructor(private itemService:ItemService,private router:Router,private loginService:LoginService){
    this.router.navigate(['/'])
     
   }

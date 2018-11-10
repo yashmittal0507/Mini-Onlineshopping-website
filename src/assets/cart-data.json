@@ -1,0 +1,8 @@
+[
+   
+
+    {"ItemId":1,"ItemName":"samsung Mobile","price":600,"quantity":1,"discount":20},
+    {"ItemId":2,"ItemName":"Motorola","price":800,"quantity":1,"discount":20},
+    {"ItemId":3,"ItemName":"Tv","price":20000,"quantity":1,"discount":20}
+   
+]
