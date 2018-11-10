@@ -15,7 +15,11 @@ export class HomeComponent implements OnInit {
   public openPanel:boolean=false;
   public itemId=[];
   constructor(private itemService:ItemService,private router:Router){
-    this.itemArray=this.itemService.getItems();
+   this.itemService.getItems().subscribe(item=>{
+     console.log(item)
+    this.itemArray=item;
+    },
+    error => console.log(error));
     
   }
 
